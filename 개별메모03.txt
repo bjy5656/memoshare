@@ -1,0 +1,85 @@
+개별메모03
+
+remote repository 
+- git-hub 원격 저장소 주소 사용 
+- 다른 사람 저장소 주소는 사용 불가
+- 권한이 없음 
+- 원격 저장소에서 버튼으로 클릭한 로그는 안 보일 수 있다. 
+
+$ git rm --cached [파일명] 
+- tracked된 파일을 수정을 위해 untracked 상태로 내릴 때 파일 내림 
+
+$ git log
+- head -> main  => 로컬 저장소 브랜치
+
+$ git pull origin main --allow-unrelated-histories
+- 원격 저장소와 로컬 저장소 병합 => 메시지 입력 
+- 원격과 로컬 상태가 다르면 pull로 내려받아야 올릴 수 있다.
+- pull 후 로그 확인하면 head -> main, origin/main => 로컬, 원격 저장소 브랜치, 로컬과 원격 상태가 같다. 
+
+$ git remote rename [변경전이름] [변경후이름]
+- 원격저장소 이름 변경 
+
+$ git remote remove [삭제할 저장소 이름]
+- 원격저장소 삭제 
+
+$ git push --force [원격저장소이름] [브랜치이름]
+- 원격과 로컬 달라도 강제로 push
+
+$ echo "파일 내용" > 파일명
+- 해당 파일에 내용 추가 
+- echo로 내용을 추가했다면 add 시에 전체 파일을 지정하지 않고 각각의 파일명을 지정해주는 것이 좋다.
+- 전체로 지정하면 깨질 가능성이 있다. 
+- add 하면 LF 방식으로 만들어진 test1.txt 파일이 나중에 CSLF로 바뀔 예정이다라는 경고 메시지 출력된다
+
+새 폴더에서 clone을 받았다면 해당 폴더에서 다시 git bash 열기 
+
+$ touch [파일명]
+- 빈 파일 생성 
+
+$ vi [파일명]
+- 해당 파일 편집기로 수정 
+
+자바 설치
+- https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
+- 설치 파일 실행 
+- C드라이브 -> java 폴더에 설치 
+
+C:\Users\Administrator>D:
+- D 드라이브로 이동 
+- 드라이브 이름 뒤에 콜론(:)을 붙인다.
+
+D:\>cd D:\web_0900_bjy\JAVA\workspace
+- cd => 디렉터리 변경 명령어 
+
+D:\web_0900_bjy\JAVA\workspace>javac Test.java
+- 컴파일
+- Test.class 파일 생성됨 
+
+.class 파일 
+- java 바이트 코드로 변환된 파일 
+- 이 파일이 있어야 코드 실행 가능 
+- jvm이 os가 bytecode를 이해할 수 있도록 도와줌 
+
+이클립스 설치 
+- https://www.eclipse.org/downloads/packages/release/2024-12/r
+- 반디집으로 풀기
+- 우클릭 -> 보기 -> 자세히 -> 유형 표시 
+- eclipse.exe 바로가기 만들기 
+- JAVA/workspace로 경로 설정 
+- 항상 이 경로로 설정 체크 
+
+이클립스 프로젝트 시작
+- 이름 입력 
+- JRE 버전 알맞게 바꾸기
+- Module 체크 해제 
+- 창 보이게 하기 : window -> show view -> project explorer
+- src 우클릭 -> new -> project
+- project 우클릭 -> new -> class -> 이름 대문자로 입력 
+- 패키지와 클래스 이름 중복 안 됨(같은 위치에서)
+- .class 파일은 프로젝트 폴더/bin에 위치 
+- main 쓰고 ctrl + space bar 엔터 main 메소드 자동 완성
+- 코드 입력 -> ctr + s => 저장 
+- 초록 재생 버튼 / ctrl + F11 => 결과 출력 
+- ctrl + n => 새로 만들기 
+
