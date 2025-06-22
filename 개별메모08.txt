@@ -44,7 +44,7 @@ Runtime Data Area
 - JVM이 관리하는 메모리 영역이다.
 
 printf문 자동완성 등록하기 
-- window -> preferences -> editor -> templates -> context : Java statements
+- window -> preferences -> Java -> editor -> templates -> New -> context : Java statements
 -> Pattern : System.out.printf(${word_selection}${});${cursor}
 
  이클립스 기타 단축키 
