@@ -1,0 +1,59 @@
+isTrue = true로 설정 
+count = 0
+문자열개수 입력 받기 
+
+i for문 => 문자열 개수만큼 반복 
+	문자열 입력받기 
+	저장용문자열에 문자열 젤 처음글자 저장
+	j for문 =>  문자열 개수만큼 반복, 현재 문자와 저장용문자열 젤 마지막 다르면 저장용문자열에 현재 문자열 추가 
+		    k for문 => 저장용문자열 모든 문자와 현재 문자 비교 -> 같으면 isTrue = false
+	if(isTrue) => count++
+	isTrue = true
+출력(count)
+
+package constructorThis02;
+
+import java.util.Scanner;
+
+public class array {
+	public static void main(String[] args) {
+		
+		//문자열
+		//for 
+		boolean isTrue = true;
+		int count = 0;
+		int countStr = 0;
+		String str = "";
+		String word = "";
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("문자열 개수 입력 : ");
+		countStr = sc.nextInt();
+		sc.nextLine();
+		
+		for(int i = 0; i < countStr; i++) {
+			System.out.println("문자열 입력 : ");
+			str = sc.nextLine();
+			word = "" + str.charAt(0);
+			for (int j = 0; j < str.length(); j++) {
+				if(str.charAt(j) != word.charAt(word.length()-1)) {
+					word += str.charAt(j);
+					for (int k = 0; k < word.length()-1; k++) {
+						if(word.charAt(k) == str.charAt(j)){
+							isTrue = false;
+						}
+					}
+				}
+			}
+		if(isTrue) {
+			count++;
+		}
+		isTrue = true;
+		}
+		System.out.println(count);
+		
+		
+		
+	}
+}
+
