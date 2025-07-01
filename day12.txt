@@ -281,7 +281,7 @@ Temporary Items
 *.icloud
 
 ### Windows ###
-# Windows thumbnail cache files
+# Windows thumbnail cache filesㄴ
 Thumbs.db
 Thumbs.db:encryptable
 ehthumbs.db
