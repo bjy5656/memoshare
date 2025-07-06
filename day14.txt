@@ -229,12 +229,12 @@ this, this(), super, super()
 	상속해주는 개념 
 
 1) 상속문법 
->>>>>>> 65785a926f0d35a5c271d522b017fec8d873a097
+
 	class Parents{
 		//Parents 클래스의 멤버
 	}
 
-<<<<<<< HEAD
+
 	class Child extends Parents{
 		//Child 클래스의 멤버
 		//Parents 클래스의 멤버
