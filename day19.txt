@@ -82,7 +82,7 @@
 
 1) 인터페이스 분류 
 	컬렉션 인터페이스 	List 인터페이스 	순서o, 중복o	ArrayList
-			set 인터페이스	순서x, 중복x	HashSet
+				set 인터페이스	순서x, 중복x	HashSet
 	Map 인터페이스 			Key-value	HashMap
 
 2) List 구현 클래스 
