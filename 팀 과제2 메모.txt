@@ -1,0 +1,92 @@
+패키지명, 클래스명, 필드명
+
+프로젝트명 : LibraryTeamProject
+패키지명, 클래스/인터페이스명 : 
+1. user
+- User(추상클래스)
+	사용자기본정보 필드
+		private String name
+		private int	age
+		private int	userNum;
+- LoginManager
+	Map 필드		로그인정보
+	getUer		map에 사용자 저장/조회 메소드
+	Login		사용자 로그인 기능 메소드
+
+2. member
+- Member(User 상속)
+	List 필드 	book
+	borrowBook 	도서대출메소드(재정의)
+	returnBook 	도서반납메소드(재정의)
+	checkList  	대출중인 책 목록 확인 메소드
+
+3. bookMaker
+- Borrow(인터페이스)
+	borrowBook	도서대출메소드
+	returnBook	도서반납메소드
+- Book(클래스) 
+	도서관련기본정보 필드(제목, 저자, 대출정보) 
+	printInfo
+	borrowBook	도서대출메소드(재정의)
+
+4. serviceDeveloper
+- LibraryService
+	List 필드 	
+	printBookList		도서목록출력메소드
+	borrowBookService	도서대여메소드
+	returnBookService	도서바납메소드
+
+5. exceptionMaker
+- MaxBorrowException(한도초과)	
+- BookNotAvailableException(대출불가)
+- BookAlreadyException(이미대여)
+
+6. UIAppMaker
+- ConsoleUI
+	- 메뉴 메소드(스캐너 sc)
+	- 대출 책 목록 출력 메소드()
+	- 반납 책 목록 출력 메소드()
+	
+- LibraryApp(main)
+	- 위에 기능들 하나로 묶어서 사용할 수 있는 메인메소드 구현
+
+전체 
+필드 : private 
+메소드 : public 
+toString : 모든 메소드에서 오버라이딩 
+equals, hashCode : 비교가 필요한 경우만 오버라이딩 
+
+순서 
+1번, 3번 먼저 가능 
+1번 -> 2번 
+1, 2, 3 -> 4 -> 6
+
+
+도서 대출 프로그램 로직 
+
+프로램 실행->로그인	-> member 정보 비교 -> 도서 대출 -> 대출할책목록출력
+				  -> 도서 반납 -> 반납할책목록출력 
+	 -> 로그아웃
+	 -> 도서 검색 
+
++)추가기능			
+회원정보넣기/회원가입/회원탈퇴?
+도서정보넣기? 
+
+3번 도서 설계자 로직 
+Book 클래스 
+	도서 기본정보(제목, 저자, 대출정보) 
+	String title; 
+	String author;
+	boolean isAvailable
+	대여메소드 -> 
+	반납메소드 -> 
+
+Borrow 인터페이스 
+	대여메소드 -> 예외던지기 
+	반납메소드 
+
+toString 오버라이딩 
+필요시equals, hashCode 오버라이딩
+
+
