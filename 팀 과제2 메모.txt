@@ -89,4 +89,27 @@ Borrow 인터페이스
 toString 오버라이딩 
 필요시equals, hashCode 오버라이딩
 
+코딩개선과제(학생정보저장) 
+toString, equals, hashCode 관련 
+
+toString ->	1안 : 키를 학번으로 저장, 학번이 같은데 학생이름이 다른 객체가 추가되면(equals->false) -> 기존 이름과 다른데 갱신할 것인지 묻기 
+		2안 : 키를 아이디로 저장, 학
+
+
+Book 클래스 
+toString, equals, hashCode 관련 
+
+toString -> Book 객체의 정보 문자열로 반환 
+
+equals -> 이름, 저자 비교 
+
+hashCode -> 
+
+
+
+"250711 12:4 백정이 Book, Borrow 클래스 3차수정 = 잔오류수정"
+merge!
+
+전체 로직
+
 
