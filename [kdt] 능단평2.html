@@ -1,0 +1,687 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[kdt] 능단평2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2349850c-1bd4-8042-b967-d4ea8f80bb6e" class="page sans"><header><h1 class="page-title">[kdt] 능단평2</h1><p class="page-description"></p></header><div class="page-body"><h1 id="2349850c-1bd4-80b1-8b0f-cecf6c5d84af" class="">1. 아래의 비정규화된 테이블과 요구사항이다.</h1><table id="2349850c-1bd4-80ed-8615-cd62ecd757fe" class="simple-table"><thead class="simple-table-header"><tr id="2349850c-1bd4-80ef-9b75-e18e7dee81a2"><th id="?nPg" class="simple-table-header-color simple-table-header">주문번호</th><th id="_jh_" class="simple-table-header-color simple-table-header">주문일자</th><th id="=oT|" class="simple-table-header-color simple-table-header">고객명</th><th id="\d?d" class="simple-table-header-color simple-table-header">연락처</th><th id="PNaN" class="simple-table-header-color simple-table-header">주소</th><th id="Qh_@" class="simple-table-header-color simple-table-header">등급</th><th id="\iwI" class="simple-table-header-color simple-table-header">할인율</th><th id="ecMh" class="simple-table-header-color simple-table-header">주문제품</th><th id="]z;&lt;" class="simple-table-header-color simple-table-header">수량</th><th id="PyS^" class="simple-table-header-color simple-table-header">제품모델</th><th id="~[p_" class="simple-table-header-color simple-table-header">제품코드</th><th id="DNjB" class="simple-table-header-color simple-table-header">구매업체</th><th id="\np[" class="simple-table-header-color simple-table-header">업체주소</th><th id="`Tu{" class="simple-table-header-color simple-table-header">업체연락처</th><th id="@l|M" class="simple-table-header-color simple-table-header">입고일</th><th id="Yytk" class="simple-table-header-color simple-table-header">입고수량</th><th id="?yxf" class="simple-table-header-color simple-table-header">배송일</th><th id="t`SG" class="simple-table-header-color simple-table-header">배송기사</th><th id="MIXK" class="simple-table-header-color simple-table-header">배송차량</th></tr></thead><tbody><tr id="2349850c-1bd4-80e4-b100-cc77786db20a"><td id="?nPg" class="">1001</td><td id="_jh_" class="">2024-01-02</td><td id="=oT|" class="">홍길동</td><td id="\d?d" class="">010-1111</td><td id="PNaN" class="">서울</td><td id="Qh_@" class="">골드</td><td id="\iwI" class="">10%</td><td id="ecMh" class="">휴대폰</td><td id="]z;&lt;" class="">2</td><td id="PyS^" class="">X123</td><td id="~[p_" class="">P100</td><td id="DNjB" class="">삼성전자</td><td id="\np[" class="">경기 수원</td><td id="`Tu{" class="">031-1234</td><td id="@l|M" class="">2025-06-30</td><td id="Yytk" class="">20</td><td id="?yxf" class="">2025-07-03</td><td id="t`SG" class="">김기사</td><td id="MIXK" class="">11가1234</td></tr></tbody></table><h2 id="2349850c-1bd4-8095-ac62-e33e7ecc22ee" class="">[요구사항]</h2><p id="2349850c-1bd4-8069-8b38-deac1f552154" class=""><strong>제품은 제품코드, 제품명, 모델명, 구매업체, 구매단가를 관리한다.</strong></p><p id="2349850c-1bd4-80ce-8ffc-cc4705b4e79f" class=""><strong>회원은 회원번호, 이름, 연락처, 주소, 회원등급을 관리한다.</strong></p><p id="2349850c-1bd4-80ad-99c6-c87f116d6f66" class=""><strong>회원등급은 일반, 실버, 골드 3종이며 할인율은 각각 0%, 5%, 10%이다.</strong></p><p id="2349850c-1bd4-802b-8165-d77b37a5b7c0" class=""><strong>고객은 온라인 회원 가입을 통해 제품을 구매하며, 주문서가 작성된다.</strong></p><p id="2349850c-1bd4-80b9-be8e-df62646dfe1d" class=""><strong>주문서에는 주문번호, 주문일자, 고객명, 주문제품, 주문수량이 기록된다.</strong></p><p id="2349850c-1bd4-8057-ad11-f3f331e1b5b3" class=""><strong>제품 입고는 입고일자, 구매업체, 제품코드, 입고수량을 포함한다.</strong></p><p id="2349850c-1bd4-8074-b5fc-fec48fe3074f" class=""><strong>배송은 고객 주문에 기반해 이루어지며, 배송번호, 배송일자, 배송기사, 배송차량, 고객정보를 포함한다.</strong></p><h3 id="2349850c-1bd4-8083-a4bd-cfa5b3f4f908" class="">1) 요구사항을 기준으로 순서대로 모델링을 진행한다.</h3><p id="2349850c-1bd4-802d-b1af-f59d8b105c0c" class="">
+</p><h3 id="2349850c-1bd4-8020-be63-f3dc27bf8ba4" class="">2) 위의 비정규화 된 테이블을 보고 정규화를 진행하되, 구현은 하지 않는다</h3><p id="2349850c-1bd4-809d-919e-d5b6285fa00d" class="">
+</p><p id="2349850c-1bd4-804b-adb6-f631cc742d9d" class="">
+</p><h1 id="2349850c-1bd4-803b-9463-c7127a8660e9" class="">2. 다음 설명에 해당하는 개념을 보기에서 골라 알맞은 기호를 쓰세요.</h1><h2 id="2349850c-1bd4-8035-9814-c5d707f1a9cf" class="">[보기]</h2><p id="2349850c-1bd4-80cf-8ec6-c79845ed2899" class=""><strong>A. 데이터 중복성<br/>B. 데이터 종속성<br/>C. 데이터 불일치<br/>D. 동시접속<br/>E. 참조 무결성<br/></strong></p><h3 id="2349850c-1bd4-800a-a5f3-ccb54aacd6dc" class="">1) 데이터가 저장된 파일의 구조가 바뀌면 그 파일을 이용하는 프로그램도 수정해야 하는 현상</h3><h3 id="2349850c-1bd4-8009-a646-ec32242a8c9c" class="">2) 하나의 데이터를 여러 곳에 중복 저장함으로써 생기는 불필요한 낭비</h3><h3 id="2349850c-1bd4-805d-83f1-ee0040f4ff14" class="">3) 학생 이름이 ‘홍길동’인데 고객센터와 교무처에 서로 다른 주소가 저장된 경우 발생하는 현상</h3><h3 id="2349850c-1bd4-80a9-9126-c3d298af4cc1" class="">4) 동일한 데이터를 여러 사용자가 동시에 접근·수정할 수 있도록 하는 기능</h3><p id="2349850c-1bd4-8090-aa95-ca6e87879273" class="">
+</p><h1 id="2349850c-1bd4-8062-afa9-dfa22775c817" class="">3. 다음 설명이 옳으면 O, 틀리면 X로 답하세요.</h1><h3 id="2349850c-1bd4-8022-889a-f5df7a7dd090" class="">1) SQL은 대소문자를 구분하지 않는 인터프리터 언어이다.</h3><h3 id="2349850c-1bd4-8039-a562-cc00d8772938" class="">2) 외래키(FK)는 다른 테이블의 기본키를 참조하며, 중복과 NULL을 허용할 수 있다.</h3><h3 id="2349850c-1bd4-804b-8571-e8cef8bd7816" class="">3) 객체지향 데이터베이스는 정형 데이터 저장에 최적화되어 있으며 관계형 구조를 사용한다.</h3><h3 id="2349850c-1bd4-809e-81ab-f1ef7262bdaa" class="">4) 데이터 무결성 중 도메인 무결성은 컬럼의 타입, 값의 유효성 등을 체크한다.</h3><h1 id="2349850c-1bd4-8080-9109-fd934550a65f" class="">4. 다음 요구사항을 만족하는 테이블을 작성하세요. (외래키 포함)</h1><h2 id="2349850c-1bd4-803f-b44a-cc471101284f" class="">[요구사항]</h2><p id="2349850c-1bd4-80f5-ab34-fa9997178fb4" class=""><strong>도서관에서 책을 대여한 기록을 관리하는 시스템이다.<br/>책 정보는 BOOK_ID, BOOK_TITLE, BOOK_AUTHOR를 가진다.<br/>회원 정보는 MEM_ID, MEM_NAME, MEM_PHONE, MEM_EMAIL을 가진다.<br/>대여 기록은 REN_ID, BOOK_ID, MEM_ID, 대여일(REN_RENTALDATE), 반납일(REN_RETURNDATE)로 구성된다.<br/>대여 테이블은 회원 및 책 테이블과 관계를 맺어야 한다.<br/></strong></p><p id="2349850c-1bd4-8067-9608-c7d562eb3152" class="">
+</p><h1 id="2349850c-1bd4-800c-a0fc-eff135d79333" class="">5. 1번에서 만든 테이블과 employees 테이블을 사용하여 쿼리문을 작성하세요.<br/>- employees 테이블을 사용하는 경우 명시되어있음 <br/>- 아래 표에 있는대로 값을 넣은 후 진행할 것<br/></h1><figure id="2349850c-1bd4-806f-aa3d-c6205ce6cf36" class="image"><a href="image.png"><img style="width:325px" src="image.png"/></a></figure><figure id="2349850c-1bd4-8047-bcdf-eaf4dc783365" class="image"><a href="image%201.png"><img style="width:471px" src="image%201.png"/></a></figure><figure id="2349850c-1bd4-800d-8686-c12ee3e99eac" class="image"><a href="image%202.png"><img style="width:586px" src="image%202.png"/></a></figure><p id="2349850c-1bd4-80e4-a256-c13f4aa98346" class="">
+</p><h3 id="2349850c-1bd4-8002-9950-fe56b720827e" class="">1) 회원 이름과 그들이 대여한 도서 제목을 모두 조회</h3><h3 id="2349850c-1bd4-801c-be2f-e3a12b1b132e" class="">2) 도서 제목이 &#x27;파친코&#x27;인 책을 대여한 회원의 이름과 이메일을 조회</h3><h3 id="2349850c-1bd4-8053-810b-c25ec3e0e193" class="">3) 부서별 최대 급여를 받는 직원들의 이름과 급여, 부서ID 조회(employees)</h3><h3 id="2349850c-1bd4-800c-9921-e5b73ca68576" class="">4) 급여가 평균보다 높은 직원들 중 SA_REP 직무를 가진 사람만 조회(employees 테이블)</h3><h3 id="2349850c-1bd4-8018-88c9-c1afd0d39ebd" class="">5) &#x27;불편한 편의점&#x27;을 대여한 회원의 이름을 조회(join, subquery)</h3><h3 id="2349850c-1bd4-801b-9f33-f860c10f75ae" class="">6) 대여 기간(반납일 - 대여일)이 가장 긴 회원의 이름과 대여기간을 조회(join, subquery)</h3><h3 id="2349850c-1bd4-803e-b139-f3032f3f6fa5" class="">7) IT 부서에 소속된 직원의 이름과 부서ID, 급여 조회(employees)</h3><h3 id="2349850c-1bd4-80c5-93b6-d79450d2a9ed" class="">8) 대여되지 않은 도서의 제목을 조회</h3><h3 id="2349850c-1bd4-80a4-869a-f0db068deb54" class="">9) 평균 급여보다 낮은 사원들의 급여를 20%( * 1.2) 인상한 결과 테이블 조회(employees)</h3><p id="2349850c-1bd4-80d8-9451-d564867f4738" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
