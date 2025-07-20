@@ -146,7 +146,7 @@
 - SQL 실행 순서 
 	FROM -> SELECT -> ORDER BY 
 
-3. 연산자 
+3. 자료형 
 1) 문자 
 	CHAR	: 고정길이 문자 
 		CHAR(용량) 
