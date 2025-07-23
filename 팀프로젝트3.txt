@@ -1,0 +1,112 @@
+*생성자에서 대출가능여부는 왜 넣은것인지 
+*생성자 2개 실제 사용하는지
+
+백정이 전체 설명 화면 구성 : 5개 
+1. java consoleUI 메뉴메소드 화면(menu 메소드 while문 부터 나오게)
+2. 1차 프로젝트 구상도 맨위에 2개(ConsoleUI, LoginManager)
+3. 1차 프로젝트 구상도 그다음 2개 + 밑에 Book 클래스도 조금 나오게(Library, Member, Book)
+4. DBConnection 클래스 화면 
+5. RentalDAO 클래스 화면
+
+팀장님이 처음 나가서 설명해줄 것
+1. 
+(우리 프로젝트의 전체적인 흐름도)
+저희 프로젝트는 ConsoleUI의 메소드에서 메뉴 출력 및 선택을 함과 동시에 선택한 메뉴에 따라 알맞는 기능의 메소드를 호출하도록 프로그램을 구성하였습니다
+각 기능에 맞게 호출할 메소드는 BookDAO, UserDAO, RentalDAO에 나눠서 구성하였습니다 
+(각 패키지 별로 어떤 기능을 넣었는지)
+저희는 패키지를 DBConnecter와 DAO클래스들를 묶어서 functionDAO로 구성했고, bookDTO와 userDTO를 각각 히나씩 구성, 메뉴메소드와 메인 프로그램이 실행되는 ConsoleUI와 LibraryApp을 UIAppMaker로 구성, 그리고 예외 클래스들을 하나로 묶어서 구성했습니다.
+
+2. 
+(업그레이드 전과 어떤점이 달라졌는지 간단하게 설명)
+1차때와 달라진 부분을 말씀드리겠습니다.
+ConsoleUI는 기존의 프로그램 실행 흐름을 유지하였고 메뉴 선택시 호출하는 메소드만 DAO에 구성한 메소드로 변경해주었습니다.
+그다음 LoginManager에 있던 로그인 및 회원가입 기능을 UserDAO에 옮기고, 회원정보 수정 및 조회 기능을 추가하였습니다. 
+
+3.
+1차 프로젝트 때 만들었던 Book과 Member 클래스의 필드를 각각 DTO에 구성하고, getter와 setter메소드 및 생성자를 추가해주었습니다. 이때 생성자를 각 상황에 맞게 쓸 수 있도록 오버로딩하여 책번호와 유저번호가 있는 생성자와 없는 생성자를 만들어주었습니다.
+LibraryService의 대출 및 반납, 검색 등의 기능을 RentalDAO 클래스를 하나더 만들어서 구성했고 Book과 Member 클래스에 있던 대출 반납 메소드를 RantalDAO의 대출/반납 메소드에 통합시켰습니다. 
+BookDAO에는 책 추가 및 제거 메소드를 추가했습니다.
+역할 분담은 1차 프로젝트 때 맡았던 역할과 관련된 기능을 맡을 수 있도록 먼저 Book, Member 및 User, LibraryService 담당자가 BookDAO, UserDAO, RentalDAO를 맡기로 했고 로그인 담당자인 승훈님이 UserDAO를, 나머지분은 BookDAO와 RentalDAO를 분담하였습니다.
+
+4. 
+(Connection PreparedStatement resultSet에 대한 간단한 설명)
+jdbc 사용은 우선 DBConnection 클래스에서 db계정 아이디 team03, 비밀번호 1234와 url을 넘겨주면서 connection 객체를 가져오도록 getConnection 메소드를 구성했습니다. 
+
+5.
+그리고 각 DAO에서 Connection, PreparedStatement, ResultSet 변수를 각각 만들어주었습니다.
+그리고 전체 DAO의 메소드에서 먼저 DBMS에 보낼 쿼리문을 작성한뒤, getConnection으로 연결후 connection 객체를 저장, preaparedStatement에 쿼리를 넘겨주고 set000메소드로 쿼리 안에 원하는 값을 넘겨주었습니다. 그다음 execute 메소드를 사용해서 쿼리를 실행하고 조회결과를 받아오는 경우 resultSet에 저장해주었습니다. 쿼리문 안에 회원이나 책 정보를 넣어야되는 경우 DTO와, getter메소드를 사용해서 쿼리문에 넣어주었습니다. 그후 마지막으로 jdbc 관련 객체들을 순서대로 닫아주었습니다.
+
+
+BookDAO
+1. 도서관에 책 추가하는 메소드를 만들었다 
+저는 도서관에 책을 추가하는 메소드를 만들었습니다. 
+
+2. 책 테이블에 책을 추가하는 쿼리를 작성해주었다
+쿼리문은 INSERT를 사용해서 TBL_BOOKS에 책 정보를 추가하도록 작성했습니다. 
+
+3. 쿼리문에 책 이름과 저자를 넣도록 하였다, 다른 필드는 넣지 않은 이유
+insert문에서 값을 추가할때 책 번호는 시퀀스를 사용해서 자동으로 번호가 올라가게 했고 ?는 책 제목과 저자를 지정했습니다. 대출가능여부는 칼럼 제약조건에서 기본값이 True로 되어있고 아직 대출되지 않았기때문에 빌린회원번호가 null이 되어야해서 넣지 않았습니다.
+
+4. 코드 실행 과정 
+코드 실행 과정은 맨처음에 말씀드린 jdbc 사용순서대로입니다.
+쿼리를 preparedState에 전달해주고 executeUpdate 메소드로 쿼리를 실행시켜주었습니다. 
+그후 jdbc관련 객체를 닫아주었습니다.
+
+
+
+말할부분 키워드 정리 
+
+1. 
+(1)ConsoleUI에서 메뉴출력/선택/선택한메뉴에맞는메소드호출
+(2)호출할 메소드는 북다오, 유저다오, 렌탈다오로 나눠구성
+(3)
+dbconnecter, dao -> functiondao
+bookdto 
+userdto
+메뉴메소드, 메인프로그램 -> uiappmaker
+예외클래스 
+2. 
+(1)consoleUI - 기존 프로그램 실행 흐름 유지, 호출하는 메소드만 DAO로
+(2)LoginManager 기능 UserDAO에 옮김
+3. 
+(1)Book, Member -> DTO, getter/setter 추가, 생성자 추가(오버로딩,번호있이없이)
+(2)LibraryService의 대출/반납/검색 -> RentalDAO
+(3)Book, Member의 대출/반납 RentalDAO에 통합
+(4)역할분담은 1차때와 관려있게, Book/Member&User/Library -> BookDAO/UserDAO/RentalDAO
+4. 
+(1)DBConnection 계정정보넘김, connection객체가져옴
+5. 
+(1)각 DAO 변수 만들기
+(2)전체 DAO 메소드서 쿼리작성,geConnection으로연결/객체저장,preparedStatement에 쿼리넘김/set메소드로값넘기기,
+execute/resultset
+(3)dto/getter 사용
+(4)jdbc객체닫기
+
+
+
+
+1. 
+
+2. 
+
+3. 
+
+4. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
