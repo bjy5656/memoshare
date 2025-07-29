@@ -1,0 +1,95 @@
+문자 함수 (Character Functions)
+함수명			설명			예시
+UPPER()			소문자를 대문자로		UPPER('sql') → 'SQL'
+LOWER()			대문자를 소문자로		LOWER('SQL') → 'sql'
+INITCAP()		단어의 첫 글자만 대문자	INITCAP('hello world') → 'Hello World'
+*SUBSTR()		문자열 일부 추출		SUBSTR('SQLD', 2, 2) → 'QL'
+*LENGTH()		문자열 길이 반환		LENGTH('SQL') → 3
+INSTR()			특정 문자 위치 반환		INSTR('SQLD', 'L') → 3
+*TRIM()			양쪽 공백 제거		TRIM(' SQL ') → 'SQL'
+*CONCAT()		문자열 두 개 연결		CONCAT('SQL', 'D') → 'SQLD'
+*LPAD(str, len, pad)	왼쪽에 특정 문자로 채워 길이 맞춤	LPAD('7', 3, '0') → '007'
+*RPAD(str, len, pad)	오른쪽에 문자 채움		RPAD('7', 3, '0') → '700'
+*REPLACE(str, old, new)	문자열 치환		REPLACE('SQLD', 'D', '') → 'SQL'
+
+SQL문의 결과는?
+SELECT SUBSTR('DEVELOPER', 5, 3) FROM DUAL; 
+=> LOP 
+
+오라클에서 'a'를 '@'로 바꾸려면?
+REPLACE('ORACLE', 'A', '@')
+REPLACE('ORACLE', '@', 'A')
+
+숫자 함수(Number Functions)
+함수명	설명		예시
+*ROUND(n, d)	반올림		ROUND(123.456, 1) → 123.5
+*TRUNC(n, d)	소수점 버림	TRUNC(123.456, 1) → 123.4
+*MOD(a, b)	나머지 반환	MOD(10, 3) → 1
+*CEIL(n)	올림		CEIL(1.2) → 2
+*FLOOR(n)	내림		FLOOR(1.8) → 1
+
+날짜 함수 (Date Functions)
+함수명			설명			예시
+*SYSDATE			현재 날짜 및 시간		SYSDATE
+*MONTHS_BETWEEN()	두 날짜의 개월 차이		MONTHS_BETWEEN('2025-07-01', *'2025-01-01') → 6
+*ADD_MONTHS()		날짜에 개월 수 더함		ADD_MONTHS(SYSDATE, 2)
+*NEXT_DAY()		다음 특정 요일 날짜 반환	NEXT_DAY(SYSDATE, 'FRIDAY')
+LAST_DAY()		해당 달의 마지막 날 반환	LAST_DAY(SYSDATE)
+**EXTRACT()		날짜에서 연,월,일 등 추출	EXTRACT(YEAR FROM SYSDATE)
+*TRUNC(date)		날짜에서 시간 제거 (일자만 남김)	TRUNC(SYSDATE)
+SYSDATE - 7		7일 전 날짜		SYSDATE - 7
+
+피연산자의 타입
+연산자의 결과타입
+
+문법으로 틀린 것은?
+select months_between('2025-07-01', '2025-01-01'); 결과 5
+
+현재날짜 sysdate
+날짜 + 개월	add_months()
+날짜차이(개월)	months_between()
+다음요일		next_day()
+이번달 마지막날 	last_day(sysdate)
+
+
+변환 함수 (Conversion Functions)
+함수명		설명			예시
+TO_CHAR()	날짜나 숫자를 문자로 변환	TO_CHAR(SYSDATE, 'YYYY-MM-DD')
+TO_DATE()	문자열을 날짜로 변환		TO_DATE('2025-07-29', 'YYYY-MM-DD')
+TO_NUMBER()	문자열을 숫자로 변환		TO_NUMBER('100')
+
+
+2. 집계 함수 (Group Functions)
+함수명	설명
+COUNT()	행 수 계산
+SUM()	합계
+AVG()	평균
+MAX()	최대값
+MIN()	최소값
+
+3. NULL 처리함수
+함수/문법			설명			예시
+NVL(expr1, expr2)	NULL이면 expr2 반환	NVL(NULL, 0) → 0
+NVL2(expr, v1, v2)	NULL이면 v2, 아니면 v1	NVL2(10, 'Y', 'N') → 'Y'
+NULLIF(a, b)		a = b이면 NULL, 아니면 a 반환	NULLIF(10, 10) → NULL
+*****COALESCE(a, b, c)	처음으로 NULL 아닌 값 반환	COALESCE(NULL, NULL, 3) → 3
+
+COALESCE(NULL, 'A', 1) => 'A'
+
+	NVL()		COALESCE()
+인자수	2개만가능		2개이상가능
+타입	두인자의타입동일	자동타입추론
+표준여부	오라클전용		SQL표준함수
+
+3. 조건함수
+함수/문법					설명		예시
+CASE					조건 분기		CASE WHEN score >= 90 THEN 'A' ... END
+DECODE(expr, val1, res1, ..., default)	간단한 조건 비교	DECODE(grade, 'A', 4, 'B', 3, 0)
+
+NVL(expr1, expr2) → expr1이 NULL이면 expr2 반환
+DECODE(expr, val1, res1, val2, res2, ..., default) → 간단한 조건 분기
+CASE WHEN ... THEN ... ELSE ... END → 복잡한 조건 분기
+
+
+
+
